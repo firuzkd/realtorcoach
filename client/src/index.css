@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 216 13% 98%; /* #F8FAFC */
+  --foreground: 215 20% 11%; /* #1E293B */
+  --muted: 210 11% 96%; /* #F1F5F9 */
+  --muted-foreground: 215 16% 47%; /* #64748B */
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 215 20% 11%; /* #1E293B */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 215 20% 11%; /* #1E293B */
+  --border: 214 13% 91%; /* #E2E8F0 */
+  --input: 214 13% 91%; /* #E2E8F0 */
+  --primary: 224 76% 48%; /* #3B82F6 */
+  --primary-foreground: 0 0% 100%; /* #FFFFFF */
+  --secondary: 188 78% 41%; /* #06B6D4 */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+  --accent: 38 92% 50%; /* #F59E0B */
+  --accent-foreground: 0 0% 100%; /* #FFFFFF */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+  --success: 142 76% 36%; /* #10B981 */
+  --success-foreground: 0 0% 100%; /* #FFFFFF */
+  --ring: 224 76% 48%; /* #3B82F6 */
+  --radius: 0.75rem;
+
+  /* DISC Colors */
+  --disc-red: 0 84% 60%; /* #EF4444 */
+  --disc-yellow: 38 92% 50%; /* #F59E0B */
+  --disc-green: 142 76% 36%; /* #10B981 */
+  --disc-blue: 217 91% 60%; /* #3B82F6 */
+}
+
+.dark {
+  --background: 215 28% 17%; /* #1E293B */
+  --foreground: 213 31% 91%; /* #E2E8F0 */
+  --muted: 215 20% 11%; /* #334155 */
+  --muted-foreground: 215 16% 65%; /* #94A3B8 */
+  --popover: 215 28% 17%; /* #1E293B */
+  --popover-foreground: 213 31% 91%; /* #E2E8F0 */
+  --card: 215 28% 17%; /* #1E293B */
+  --card-foreground: 213 31% 91%; /* #E2E8F0 */
+  --border: 215 20% 11%; /* #334155 */
+  --input: 215 20% 11%; /* #334155 */
+  --primary: 224 76% 48%; /* #3B82F6 */
+  --primary-foreground: 0 0% 100%; /* #FFFFFF */
+  --secondary: 188 78% 41%; /* #06B6D4 */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+  --accent: 38 92% 50%; /* #F59E0B */
+  --accent-foreground: 0 0% 100%; /* #FFFFFF */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+  --success: 142 76% 36%; /* #10B981 */
+  --success-foreground: 0 0% 100%; /* #FFFFFF */
+  --ring: 224 76% 48%; /* #3B82F6 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .waveform {
+    @apply flex items-center gap-0.5;
+  }
+
+  .wave-bar {
+    @apply w-1 bg-secondary rounded-sm;
+    animation: waveform 1.5s ease-in-out infinite;
+  }
+
+  .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+  .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+  .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+  .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+  .wave-bar:nth-child(6) { animation-delay: 0.5s; }
+  .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+  .wave-bar:nth-child(8) { animation-delay: 0.7s; }
+  .wave-bar:nth-child(9) { animation-delay: 0.8s; }
+  .wave-bar:nth-child(10) { animation-delay: 0.9s; }
+
+  .disc-red {
+    color: hsl(var(--disc-red));
+  }
+  .disc-yellow {
+    color: hsl(var(--disc-yellow));
+  }
+  .disc-green {
+    color: hsl(var(--disc-green));
+  }
+  .disc-blue {
+    color: hsl(var(--disc-blue));
+  }
+
+  .bg-disc-red {
+    background-color: hsl(var(--disc-red));
+  }
+  .bg-disc-yellow {
+    background-color: hsl(var(--disc-yellow));
+  }
+  .bg-disc-green {
+    background-color: hsl(var(--disc-green));
+  }
+  .bg-disc-blue {
+    background-color: hsl(var(--disc-blue));
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-light {
+    animation: bounce 1s infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(100%); 
+  }
+  to { 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes waveform {
+  0%, 100% { 
+    height: 8px; 
+  }
+  50% { 
+    height: 24px; 
+  }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Touch-friendly button styles */
+button, [role="button"] {
+  @apply min-h-[44px] min-w-[44px];
+}
+
+/* WhatsApp-style chat bubbles */
+.chat-bubble-ai {
+  @apply bg-muted text-foreground rounded-2xl rounded-tl-md p-3 max-w-xs;
+}
+
+.chat-bubble-agent {
+  @apply bg-primary text-primary-foreground rounded-2xl rounded-tr-md p-3 max-w-xs ml-auto;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, [role="button"] {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible, 
+a:focus-visible, 
+[role="button"]:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
